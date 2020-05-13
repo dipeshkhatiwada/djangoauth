@@ -88,22 +88,11 @@ def change_password(request):
         else:
             messages.add_message(request, messages.ERROR, "Password and Confirm doesn't match")
             return redirect('change_password')
-
-        # old_pass = request.POST.get('old_password')
-        # new_pass1 = request.POST.get('password1')
-        # new_pass2 = request.POST.get('password2')
-        # # u = request.POST['username']
-        # user = authenticate(username=request.user.username, password=old_pass)
-        # if user is not None:
-        #     if new_pass1 == new_pass2:
-        #         user = User.objects.get(id=request.user.id)
-        #         print(user)
-        #         user.set_password(new_pass1)
-        #         messages.add_message(request, messages.SUCCESS, "Password Changed Successfully")
-        #         return redirect("dashboard")
-        #     else:
-        #         messages.add_message(request, messages.ERROR, "Password and Confirm doesn't match")
-        #         return redirect("change_password")
-        # else:
-        #     messages.add_message(request, messages.ERROR, "Old password doesn't match")
-        #     return redirect("change_password")
+def send_mail(request):
+    if request.method == 'GET':
+        return render(request, 'send_mail.html',)
+    else:
+        email = request.POST.get('email')
+        print(email)
+        messages.add_message(request, messages.SUCCESS, "Mail send successfully")
+        return redirect('send_mail')

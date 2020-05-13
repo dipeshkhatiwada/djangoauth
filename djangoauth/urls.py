@@ -24,4 +24,5 @@ urlpatterns = [
     path('signout/', views.signout, name='signout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('change-password/', views.change_password, name='change_password'),
+    path('send-mail/', views.send_mail, name='send_mail'),
 ]
